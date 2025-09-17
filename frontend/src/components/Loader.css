@@ -1,0 +1,18 @@
+/* src/components/Loader.css */
+.loader-container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0b1020;
+  overflow: hidden;
+  position: fixed; /* sits above everything while showing */
+  inset: 0;
+  z-index: 9999;
+}
+
+.loader-rocket {
+  font-size: 4rem;
+  filter: drop-shadow(0 0 8px rgba(255, 100, 100, 0.8));
+}

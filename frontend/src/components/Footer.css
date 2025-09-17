@@ -1,0 +1,99 @@
+:root{
+  --glass-bg: rgba(17, 24, 39, 0.78);
+  --glass-line: rgba(255,255,255,.12);
+  --muted: #cbd5e1;
+  --text: #e5e7eb;
+  --brand: #7c83ff;
+  --brand-2:#6366f1;
+}
+
+/* 1) No absolute positioning — let the layout flow.
+   If you wrap your pages with a flex column (helper at bottom), the footer sticks to the bottom without overlapping. */
+.footer{
+  width: 100%;
+  padding: 0 16px env(safe-area-inset-bottom);
+  color: var(--text);
+}
+
+.footer-bar{
+  max-width: 1200px;
+  margin: 0 auto 16px;
+  padding: 12px 16px;
+  border-radius: 14px;
+  background:
+    linear-gradient(180deg, rgba(124,131,255,.08), transparent 60%),
+    var(--glass-bg);
+  border: 1px solid var(--glass-line);
+  box-shadow: 0 18px 50px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.04);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  backdrop-filter: blur(8px);
+}
+
+.brand{ font-weight: 700; }
+
+.copyright{
+  margin: 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* Social links */
+.social{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.social-link{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  font-size: 14px;
+  color: #dbeafe;                 /* readable on the space bg */
+  text-decoration: none;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  transition: filter .2s, border-color .2s, background-color .2s, transform .06s;
+  outline: none;
+}
+.social-link:hover{
+  background: rgba(124,131,255,.14);
+  border-color: rgba(124,131,255,.35);
+  filter: brightness(1.05);
+}
+.social-link:active{ transform: translateY(1px); }
+.social-link:focus-visible{
+  box-shadow: 0 0 0 3px rgba(99,102,241,.28);
+  background: rgba(124,131,255,.18);
+  border-color: rgba(124,131,255,.55);
+}
+
+/* Stack on small screens */
+@media (max-width: 640px){
+  .footer-bar{
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+    gap: 12px;
+    padding: 14px;
+  }
+  .social{ justify-content: center; }
+}
+
+
+@media (max-width: 360px){
+  .copyright{ font-size: 13px; }
+  .social-link{ font-size: 13px; padding: 7px 9px; }
+}
+
+.app{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.app > main{ flex: 1; }

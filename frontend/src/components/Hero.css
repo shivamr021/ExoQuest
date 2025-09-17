@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  position: relative;
+}
+
+.hero-container {
+  position: relative;
+  z-index: 2; 
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Add a top margin to move the entire content block down */
+  margin-top: 50px; 
+}
+.hero-title {
+  font-family: 'Inter', sans-serif;
+  /* Adjusted: The font size is now significantly smaller */
+  font-size: clamp(1.8rem, 5.5vw, 4rem);
+  font-weight: 900;
+  color: white;
+  margin: 0 0 25px 0;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  line-height: 1.1;
+  white-space: nowrap; 
+}
+.hero-subtitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  /* Adjusted: Make font size slightly smaller */
+  font-size: clamp(1rem, 2.5vw, 1.6rem);
+  color: white;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+.rocket-emoji {
+  font-size: 1.5em;
+  filter: drop-shadow(0 0 10px rgba(255, 100, 100, 0.5));
+}
+
+.hero-description {
+  max-width: 800px;
+  margin: 0 auto 40px auto;
+  color: rgba(255, 255, 255, 0.9);
+  /* Adjusted: Make font size slightly smaller */
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+.hero-description p {
+  margin: 0 0 8px 0;
+}
+
+.try-now-btn {
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+  color: #000;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+  text-transform: capitalize;
+  letter-spacing: 1px;
+}
+
+.try-now-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(255, 215, 0, 0.4);
+  background: linear-gradient(135deg, #FFED4E, #FF8C00);
+}
+
+.try-now-btn:active {
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .hero-container {
+    padding: 0 15px;
+  }
+  .hero-title {
+    font-size: clamp(1.5rem, 6vw, 3rem);
+    margin-bottom: 20px;
+    white-space: normal; 
+  }
+  .hero-subtitle {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .hero-description {
+    margin-bottom: 40px;
+  }
+}
