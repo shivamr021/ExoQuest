@@ -202,6 +202,95 @@
   }
 }
 
+/* Result container (you likely already have this from earlier) */
+.result-card {
+  margin-top: 1rem;
+  padding: 1rem 1.2rem;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(6px);
+}
+
+/* Verdict banner */
+.verdict {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 0.9rem;
+  align-items: center;
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+  position: relative;
+  overflow: hidden;
+}
+
+/* Glow ring */
+.verdict::after {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: conic-gradient(from 0deg, transparent 0 240deg, rgba(255,255,255,0.25) 300deg, transparent 360deg);
+  filter: blur(16px);
+  opacity: 0.12;
+  animation: verdict-spin 8s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes verdict-spin {
+  to { transform: rotate(360deg); }
+}
+
+.verdict.positive {
+  border-color: rgba(0, 200, 120, 0.4);
+  box-shadow: 0 0 0 1px rgba(0, 200, 120, 0.15) inset;
+}
+.verdict.negative {
+  border-color: rgba(255, 90, 90, 0.45);
+  box-shadow: 0 0 0 1px rgba(255, 90, 90, 0.15) inset;
+}
+
+.verdict-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  font-size: 1.25rem;
+  background: rgba(255,255,255,0.06);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.1) inset;
+}
+
+.verdict-content { display: grid; gap: 0.15rem; }
+.verdict-title {
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+.verdict-subtitle {
+  opacity: 0.85;
+  font-size: 0.92rem;
+}
+.verdict-meta {
+  margin-top: 0.2rem;
+  font-size: 0.92rem;
+}
+
+/* Raw block */
+.result-raw summary {
+  cursor: pointer;
+  margin-top: 0.9rem;
+  font-weight: 600;
+}
+.result-raw pre {
+  overflow: auto;
+  max-height: 320px;
+  margin: 0.5rem 0 0;
+  font-size: 0.85rem;
+}
+
+
+
 /* ====== Responsiveness ====== */
 @media (max-width: 640px){
   .exoplanet-form{ padding:18px; border-radius:14px; }
