@@ -9,12 +9,12 @@ const rocketVariants: Variants = {
   initial: { y: 0, opacity: 1, rotate: 0 },
   shake: {
     y: [-2, 2, -3, 3, 0],
-    rotate: [-5, 5, -5, 5, 0],
     transition: { duration: 1, ease: "easeInOut" },
   },
   launch: {
     y: -520,
     opacity: 0,
+    rotate: -80,
     transition: { duration: 1.2, ease: "easeIn" },
   },
 };
