@@ -2,9 +2,21 @@ from fastapi import FastAPI
 from schemas import PredictionRequest
 import joblib
 import pandas as pd
-
+from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
+app.add_middleware(
 
+    CORSMiddleware,
+
+    allow_origins=["*"],  # or your exact origin(s)
+
+    allow_credentials=False,
+
+    allow_methods=["*"],
+
+    allow_headers=["*"],
+
+)
 # This list contains the 36 feature names in the exact order the model expects.
 # 'koi_score' has been removed as it was dropped during training.
 MODEL_COLUMNS = [
@@ -22,7 +34,7 @@ MODEL_COLUMNS = [
 # Ensure the path is correct relative to where you run uvicorn
 try:
     # Assuming 'main.py' is in 'backend/' and 'my_random_forest.pkl' is in 'model/'
-    model = joblib.load("../model/my_random_forest.pkl")
+    model = joblib.load("model/my_random_forest.pkl")
     print("✅ Model loaded successfully.")
 except FileNotFoundError:
     model = None
